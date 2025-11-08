@@ -63,14 +63,7 @@ export function FeaturesShowcase() {
           <Button size="lg" className="bg-blue-950 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold">
             Try it free
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-slate-900 text-slate-900 hover:bg-slate-50 px-8 py-3 rounded-lg font-semibold bg-transparent"
-          >
-            Book a demo
-          </Button>
-          <FlowButton text="Flow Button" />
+          <FlowButton text="Book a demo" />
         </div>
       </div>
     </section>
