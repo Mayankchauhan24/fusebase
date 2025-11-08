@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-
 import { Button } from "@/components/ui/button"
 import { FlowButton } from "@/components/FlowButton"
+import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 export function FeaturesShowcase() {
   const [activeTab, setActiveTab] = useState("automations")
@@ -23,21 +24,70 @@ export function FeaturesShowcase() {
   return (
     <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Tab Navigation */}
+        {/* Animated/Glowing 3D Menu Bar Tabs */}
         <div className="flex justify-center mb-16">
-          <div className="inline-flex bg-slate-600/40 border border-slate-500/50 rounded-full p-1.5 gap-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-2.5 rounded-full font-medium transition-all text-sm ${
-                  activeTab === tab.id ? "bg-white text-slate-900 shadow-lg" : "text-slate-200 hover:text-white"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <motion.nav
+            className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden"
+            initial="initial"
+            whileHover="hover"
+          >
+            <motion.div
+              className="absolute -inset-2 bg-gradient-radial from-transparent via-blue-400/10 via-30% via-purple-400/10 via-60% via-red-400/10 via-90% to-transparent rounded-3xl z-0 pointer-events-none"
+              variants={{ initial: { opacity: 0 }, hover: { opacity: 1, transition: { duration: 0.5, ease: [0.4,0,0.2,1] } } }}
+            />
+            <ul className="flex items-center gap-2 relative z-10">
+              {tabs.map((tab) => {
+                const isActive = activeTab === tab.id
+                return (
+                  <motion.li key={tab.label} className="relative">
+                    <motion.div
+                      className="block rounded-xl overflow-visible group relative"
+                      style={{ perspective: "600px" }}
+                      whileHover="hover"
+                      initial="initial"
+                      onClick={() => setActiveTab(tab.id)}
+                    >
+                      <motion.div
+                        className="absolute inset-0 z-0 pointer-events-none"
+                        variants={{ initial: { opacity: 0, scale: 0.8 }, hover: { opacity: 1, scale: 2, transition: { opacity: { duration: 0.5, ease: [0.4,0,0.2,1] }, scale: { duration: 0.5, type: 'spring', stiffness: 300, damping: 25 } } } }}
+                        style={{
+                          background: isActive ? "radial-gradient(circle,rgba(59,130,246,0.15) 0%,rgba(37,99,235,0.06) 50%,rgba(29,78,216,0) 100%)" : undefined,
+                          opacity: isActive ? 1 : 0,
+                          borderRadius: "16px",
+                        }}
+                      />
+                      <motion.button
+                        type="button"
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2 relative z-10 bg-transparent text-muted-foreground group-hover:text-foreground transition-colors rounded-xl cursor-pointer text-base font-medium",
+                          isActive ? "text-blue-600 bg-white shadow-lg" : "text-slate-200 hover:text-white"
+                        )}
+                        variants={{ initial: { rotateX: 0, opacity: 1 }, hover: { rotateX: -90, opacity: 0 } }}
+                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5 }}
+                        style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
+                        tabIndex={0}
+                      >
+                        <span>{tab.label}</span>
+                      </motion.button>
+                      <motion.button
+                        type="button"
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2 absolute inset-0 z-10 bg-transparent text-muted-foreground group-hover:text-foreground transition-colors rounded-xl cursor-pointer text-base font-medium",
+                          isActive ? "text-blue-600 bg-white shadow-lg" : "text-slate-200 hover:text-white"
+                        )}
+                        variants={{ initial: { rotateX: 90, opacity: 0 }, hover: { rotateX: 0, opacity: 1 } }}
+                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5 }}
+                        style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
+                        tabIndex={0}
+                      >
+                        <span>{tab.label}</span>
+                      </motion.button>
+                    </motion.div>
+                  </motion.li>
+                )
+              })}
+            </ul>
+          </motion.nav>
         </div>
 
         {/* Showcase Container */}
