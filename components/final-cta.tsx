@@ -24,31 +24,32 @@ export function FinalCTA() {
   }, [])
 
   return (
-    <section className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 bg-opacity-90 px-0 py-0" style={{margin:'0 auto'}}> 
-      {/* Star pattern overlay */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-40">
-          {stars.map((star, i) => (
-            <div
-              key={i}
-              className="absolute h-1 w-1 rounded-full bg-white"
-              style={{
-                left: star.left,
-                top: star.top,
-                opacity: star.opacity,
-              }}
-            />
-          ))}
+    <div className="w-full px-4 sm:px-6 lg:px-8">
+      <section className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 bg-opacity-90 mx-auto"> 
+        {/* Star pattern overlay */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 opacity-40">
+            {stars.map((star, i) => (
+              <div
+                key={i}
+                className="absolute h-1 w-1 rounded-full bg-white"
+                style={{
+                  left: star.left,
+                  top: star.top,
+                  opacity: star.opacity,
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center min-h-[470px] px-8 sm:px-16 py-16 sm:py-28">
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[470px] px-8 sm:px-16 py-16 sm:py-28">
         <h2 className="mb-6 mt-0 text-balance text-6xl sm:text-7xl font-bold text-white leading-tight text-center">
           Ready to work smarter?
         </h2>
 
-        <p className="mb-10 text-balance text-lg sm:text-xl text-teal-50 max-w-[900px] text-center mx-auto">
+        <p className="mb-10 text-balance text-lg sm:text-xl text-teal-50 max-w-2xl text-center mx-auto">
           Cut through complexity, accelerate task completion, and empower your team to focus on what truly matters. Get started today
         </p>
 
@@ -66,5 +67,6 @@ export function FinalCTA() {
         </div>
       </div>
     </section>
+    </div>
   )
 }
