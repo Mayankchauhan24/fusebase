@@ -112,23 +112,8 @@ export function FeaturesShowcase() {
           </motion.nav>
         </div>
 
-        {/* Showcase Container */}
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-blue-800 p-8 sm:p-12">
-          {/* Decorative gradient overlays */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
-          </div>
-
-          {/* Conditional rendering based on active tab */}
-          <div className="relative flex items-center justify-center min-h-96">
-            <img
-              src={tabImages[activeTab as keyof typeof tabImages] || "/placeholder.svg"}
-              alt={`${tabs.find((t) => t.id === activeTab)?.label} showcase`}
-              className="w-full max-w-5xl object-contain transition-opacity duration-300"
-            />
-          </div>
-        </div>
+        {/* Features Workspace Trio Section (Card Section) */}
+        <FeaturesWorkspaceTrio />
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
