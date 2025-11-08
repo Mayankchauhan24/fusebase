@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react"
+
 import { Button } from "@/components/ui/button"
+import { FlowButton } from "@/components/FlowButton"
 
 export function FeaturesShowcase() {
   const [activeTab, setActiveTab] = useState("automations")
@@ -68,6 +70,7 @@ export function FeaturesShowcase() {
           >
             Book a demo
           </Button>
+          <FlowButton text="Flow Button" />
         </div>
       </div>
     </section>
