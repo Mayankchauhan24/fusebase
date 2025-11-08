@@ -15,7 +15,7 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden max-w-full">
       <Navbar />
       <Hero />
       <ConveyorBelt />
@@ -30,7 +30,6 @@ export default function Home() {
       <SecurityIntegration />
       <FinalCTA />
       <Footer />
-      <main className="min-h-screen bg-background">{/* Your page content goes here */}</main>
     </div>
   )
 }

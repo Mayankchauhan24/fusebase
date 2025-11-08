@@ -1,4 +1,5 @@
     import { Briefcase, Users, Bot, Check } from "lucide-react";
+      import { FlowButton } from "@/components/FlowButton"
 
 export function FeaturesWorkspaceTrio() {
   return (

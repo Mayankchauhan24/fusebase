@@ -53,15 +53,15 @@ export function ConveyorBelt() {
   ]
 
   return (
-    <section className="w-full py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full py-16 bg-background overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 w-full">
         {/* Heading */}
         <h2 className="text-center text-2xl font-semibold text-foreground mb-12">
           Trusted by 3000+ businesses across the world
         </h2>
 
         {/* Conveyor Belt Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full">
           {/* Gradient fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10" />

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { FlowButton } from "@/components/FlowButton"
 
 export function Hero() {
   return (
@@ -37,13 +38,7 @@ export function Hero() {
               >
                 Try it free
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-slate-900 text-slate-900 hover:bg-slate-50 rounded-lg px-8 py-3 font-semibold bg-transparent"
-              >
-                Book a demo
-              </Button>
+              <FlowButton text="Book a demo" />
             </div>
           </div>
 

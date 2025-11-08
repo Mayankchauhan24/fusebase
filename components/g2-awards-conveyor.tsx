@@ -57,10 +57,10 @@ export function G2AwardsConveyor() {
   ]
 
   return (
-    <section className="w-full py-12 bg-background">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="w-full py-12 bg-background overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 w-full">
         {/* Conveyor Belt Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full">
           {/* Gradient fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10" />

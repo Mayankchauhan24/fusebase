@@ -13,8 +13,8 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="border-b border-border bg-background">
-      <div className="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+    <nav className="border-b border-border bg-background overflow-x-hidden">
+      <div className="flex items-center justify-between px-4 sm:px-8 py-4 max-w-7xl mx-auto w-full">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold text-foreground">FUSEBASE</span>
