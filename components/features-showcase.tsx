@@ -5,14 +5,34 @@ import { Button } from "@/components/ui/button"
 import { FlowButton } from "@/components/FlowButton"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { Settings, Users, Bot } from "lucide-react"
 
 export function FeaturesShowcase() {
   const [activeTab, setActiveTab] = useState("automations")
 
+
   const tabs = [
-    { id: "automations", label: "Automations" },
-    { id: "workspace", label: "Team Workspace" },
-    { id: "agents", label: "AI Agents" },
+    {
+      id: "automations",
+      label: "Automations",
+      icon: <Settings className="h-5 w-5" />,
+      gradient: "radial-gradient(circle,rgba(59,130,246,0.15) 0%,rgba(37,99,235,0.06) 50%,rgba(29,78,216,0) 100%)",
+      iconColor: "text-blue-500",
+    },
+    {
+      id: "workspace",
+      label: "Team Workspace",
+      icon: <Users className="h-5 w-5" />,
+      gradient: "radial-gradient(circle,rgba(34,197,94,0.15) 0%,rgba(22,163,74,0.06) 50%,rgba(21,128,61,0) 100%)",
+      iconColor: "text-green-500",
+    },
+    {
+      id: "agents",
+      label: "AI Agents",
+      icon: <Bot className="h-5 w-5" />,
+      gradient: "radial-gradient(circle,rgba(239,68,68,0.15) 0%,rgba(220,38,38,0.06) 50%,rgba(185,28,28,0) 100%)",
+      iconColor: "text-red-500",
+    },
   ]
 
   const tabImages = {
@@ -24,7 +44,7 @@ export function FeaturesShowcase() {
   return (
     <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Animated/Glowing 3D Menu Bar Tabs */}
+        {/* Animated/Glowing 3D Menu Bar Tabs with Icons */}
         <div className="flex justify-center mb-16">
           <motion.nav
             className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden"
@@ -51,7 +71,7 @@ export function FeaturesShowcase() {
                         className="absolute inset-0 z-0 pointer-events-none"
                         variants={{ initial: { opacity: 0, scale: 0.8 }, hover: { opacity: 1, scale: 2, transition: { opacity: { duration: 0.5, ease: [0.4,0,0.2,1] }, scale: { duration: 0.5, type: 'spring', stiffness: 300, damping: 25 } } } }}
                         style={{
-                          background: isActive ? "radial-gradient(circle,rgba(59,130,246,0.15) 0%,rgba(37,99,235,0.06) 50%,rgba(29,78,216,0) 100%)" : undefined,
+                          background: isActive ? tab.gradient : undefined,
                           opacity: isActive ? 1 : 0,
                           borderRadius: "16px",
                         }}
@@ -60,26 +80,28 @@ export function FeaturesShowcase() {
                         type="button"
                         className={cn(
                           "flex items-center gap-2 px-4 py-2 relative z-10 bg-transparent text-muted-foreground group-hover:text-foreground transition-colors rounded-xl cursor-pointer text-base font-medium",
-                          isActive ? "text-blue-600 bg-white shadow-lg" : "text-slate-200 hover:text-white"
+                          isActive ? `${tab.iconColor} text-foreground bg-white shadow-lg` : "text-slate-200 hover:text-white"
                         )}
                         variants={{ initial: { rotateX: 0, opacity: 1 }, hover: { rotateX: -90, opacity: 0 } }}
                         transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5 }}
                         style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
                         tabIndex={0}
                       >
+                        <span>{tab.icon}</span>
                         <span>{tab.label}</span>
                       </motion.button>
                       <motion.button
                         type="button"
                         className={cn(
                           "flex items-center gap-2 px-4 py-2 absolute inset-0 z-10 bg-transparent text-muted-foreground group-hover:text-foreground transition-colors rounded-xl cursor-pointer text-base font-medium",
-                          isActive ? "text-blue-600 bg-white shadow-lg" : "text-slate-200 hover:text-white"
+                          isActive ? `${tab.iconColor} text-foreground bg-white shadow-lg` : "text-slate-200 hover:text-white"
                         )}
                         variants={{ initial: { rotateX: 90, opacity: 0 }, hover: { rotateX: 0, opacity: 1 } }}
                         transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.5 }}
                         style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
                         tabIndex={0}
                       >
+                        <span>{tab.icon}</span>
                         <span>{tab.label}</span>
                       </motion.button>
                     </motion.div>
